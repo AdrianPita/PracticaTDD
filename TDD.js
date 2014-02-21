@@ -2,7 +2,7 @@ chai.should(); // invoking this function creates a "should" object on every obje
 context = describe;
 
 function listFilter(list) {
-    return list
+    return [list[0]]
 }
 
 /* To DO LIST
