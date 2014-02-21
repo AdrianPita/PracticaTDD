@@ -21,4 +21,8 @@ describe("TDD Practica", function(){
     it("si hay un email, devuelve el email", function(){
         expect(listFilter(['test@test.com'])).toEqual(['test@test.com']);
     });
+
+    it("si hay dos emails iguales, devuelve un solo email", function(){
+        expect(listFilter(['test@test.com', 'test@test.com'])).toEqual(['test@test.com']);
+    });
 });
