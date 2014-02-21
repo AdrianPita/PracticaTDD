@@ -21,9 +21,9 @@ function listFilter(list) {
 *Test:
 *['test1@test.com', 'test1@test.com', 'test2@test.com'] ----> ['test1@test.com','test2@test.com']
 *Test:
-*['test@test.com', 'TEST@test.com'] ----> ['test@test.com']
+*
 *Test:
-
+*['test@test.com', 'TEST@test.com'] ----> ['test@test.com']
 */
 
 describe("TDD Practica", function(){
@@ -37,5 +37,8 @@ describe("TDD Practica", function(){
     });
     it("si hay tres emails, devuelve dos emails", function(){
         expect(listFilter(['test1@test.com', 'test1@test.com', 'test2@test.com'])).toEqual(['test1@test.com', 'test2@test.com']);
+    });
+    it("elimina duplicados en mayusculas", function(){
+        expect(listFilter(['test@test.com', 'TEST@test.com'])).toEqual(['test@test.com']);
     });
 });
