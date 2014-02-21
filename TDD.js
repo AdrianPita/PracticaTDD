@@ -2,12 +2,10 @@ chai.should(); // invoking this function creates a "should" object on every obje
 context = describe;
 
 function listFilter(list) {
-    var i, j;
-    for (i=0; i<list.length; i++){
-        for (j=i+1; j<list.length; j++){
-            if (list[i] === list[j]){
-                list.splice(j,1);
-            }
+    var i;
+    for (i=1; i<list.length; i++){
+        if (list[0].toLowerCase() === list[i].toLowerCase()){
+            list.splice(i,1);
         }
     }
     return list
@@ -21,9 +19,9 @@ function listFilter(list) {
 *Test:
 *['test1@test.com', 'test1@test.com', 'test2@test.com'] ----> ['test1@test.com','test2@test.com']
 *Test:
-*
-*Test:
 *['test@test.com', 'TEST@test.com'] ----> ['test@test.com']
+*Test:
+*
 */
 
 describe("TDD Practica", function(){
