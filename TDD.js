@@ -1,7 +1,9 @@
 chai.should(); // invoking this function creates a "should" object on every object
 context = describe;
 
-function listFilter(list) {}
+function listFilter(list) {
+    return list
+}
 
 /* To DO LIST
 *Test:
