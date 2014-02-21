@@ -2,7 +2,15 @@ chai.should(); // invoking this function creates a "should" object on every obje
 context = describe;
 
 function listFilter(list) {
-    return [list[0]]
+    var i, j;
+    for (i=0; i<list.length; i++){
+        for (j=i+1; j<list.length; j++){
+            if (list[i] === list[j]){
+                list.splice(j,1);
+            }
+        }
+    }
+    return list
 }
 
 /* To DO LIST
@@ -11,9 +19,11 @@ function listFilter(list) {
 *Test:
 *['test@test.com', 'test@test.com'] ----> ['test@test.com']
 *Test:
+*['test1@test.com', 'test1@test.com', 'test2@test.com'] ----> ['test1@test.com','test2@test.com']
+*Test:
 *['test@test.com', 'TEST@test.com'] ----> ['test@test.com']
 *Test:
-*
+
 */
 
 describe("TDD Practica", function(){
@@ -24,5 +34,8 @@ describe("TDD Practica", function(){
 
     it("si hay dos emails iguales, devuelve un solo email", function(){
         expect(listFilter(['test@test.com', 'test@test.com'])).toEqual(['test@test.com']);
+    });
+    it("si hay tres emails, devuelve dos emails", function(){
+        expect(listFilter(['test1@test.com', 'test1@test.com', 'test2@test.com'])).toEqual(['test1@test.com', 'test2@test.com']);
     });
 });
